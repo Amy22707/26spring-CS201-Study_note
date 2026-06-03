@@ -1,0 +1,20 @@
+while(True):
+    s=input()
+    if(s=='.'):
+        break
+    n=len(s)
+    next=[-1]*(n+1)
+    i=0
+    j=-1
+    while(i<n):
+        if(j==-1 or s[i]==s[j]):
+            i+=1
+            j+=1
+            next[i]=j
+        else:
+            j=next[j]
+    l=n-next[n]
+    if(n%l==0):
+        print(n//l)
+    else:
+        print(1)

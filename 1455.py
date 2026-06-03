@@ -1,0 +1,10 @@
+while(True):
+    a=int(input())
+    if(a==0):
+        break
+    low=a&(-a)
+    new=a+low
+    a=a^new
+    a=a//low
+    a=a//4
+    print(new|a)
