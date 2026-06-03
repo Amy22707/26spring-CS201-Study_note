@@ -1,0 +1,31 @@
+a=input()
+s=[]
+n=len(a)
+t=""
+for i in a:
+    if(i=="["):
+        if(t!=""):
+            s.append(t)
+            t=""
+        s.append(i)
+    elif(i.isdigit()):
+        t+=i
+    elif(i=="]"):
+        tmp=""
+        while(s and not s[-1].isdigit()):
+            tmp=s[-1]+tmp
+            s.pop() 
+        tmp=tmp*int(s[-1])
+        s.pop()
+        s.pop()
+        s.append(tmp)
+    else:
+        if(t!=""):
+            s.append(t)
+            t=""
+        s.append(i)
+ans=""
+while(s):
+    ans=s[-1]+ans
+    s.pop()
+print(ans)
